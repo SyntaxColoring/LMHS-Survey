@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>LMHS Survey</title>
+		
+		<link rel = "stylesheet" type = "text/css" href = "Style.css">
+		
+		<script type = "text/javascript" src = "cookies.js"></script>
+		<script type = "text/javascript" src = "Psychology.js"></script>
+	</head>
+	<body>
+		<h1>LMHS Survey</h1>
+		<p>Your response is totally confidential, so please be honest!</p>
+		
+		<!-- The form is split into two parts: the scenario portion and the gender portion.
+		     Only one portion is displayed at a time.  Once both portions have been completed,
+		     the entire form is submitted at once to a Google Form to store the responses. -->
+		<form id = "Form" method = "post" action = "https://docs.google.com/forms/d/1Wa36Rr3qN8p6MDQQdJuzvFLxeJMnHFDnOjIcg-ZZS7k/formResponse">
+			<!-- The user never inputs the gender of the victim; JavaScript
+			     populates it automatically from the randomly-generated scenario. -->
+			<input id = "ScenarioGenderField" type = "hidden" name = "entry.625489560" value = "">
+			
+			<!-- Both portions of the survey are hidden initially.  JavaScript
+			     determines when to show them. -->
+			<div id = "ScenarioPortion" style = "display: none">
+				<h2>Question 1 of 2</h2>
+				<p id = "ScenarioText"></p>
+				<div class = "RadioButtonGroup">
+					<label><input class = "ScenarioInput" type = "radio" name = "entry.1096984519" value = "Very unlikely"> Very unlikely</label>
+					<label><input class = "ScenarioInput" type = "radio" name = "entry.1096984519" value = "Unlikely"> Unlikely</label>
+					<label><input class = "ScenarioInput" type = "radio" name = "entry.1096984519" value = "Neutral"> Neutral</label>
+					<label><input class = "ScenarioInput" type = "radio" name = "entry.1096984519" value = "Likely"> Likely</label>
+					<label><input class = "ScenarioInput" type = "radio" name = "entry.1096984519" value = "Very likely"> Very likely</label>
+				</div>
+				<button type = "button" id = "ScenarioSubmitButton">Next</button>
+			</div>
+			
+			<div id = "GenderPortion" style = "display: none">
+				<h2>Question 2 of 2</h2>
+				<p>Which gender are you?</p>
+				<div class = "RadioButtonGroup">
+					<label><input id = "MaleButton" type = "radio" name = "entry.903834139" value = "Male"> Boy</label>
+					<label><input id = "FemaleButton" type = "radio" name = "entry.903834139" value = "Female"> Girl</label>
+				</div>
+				<button type = "button" id = "GenderSubmitButton">Submit</button>
+			</div>
+			
+			<!-- Displayed if the user visits this page after having completed the form. -->
+			<p id = "SurveyCompleteMessage" style = "display: none">You've already finished this survey.  Thank you!</p>
+		</form>
+		
+		<p id = "Disclaimer">Survey by Max Marrone for a psychology project.  Not endorsed by the school.</p>
+	</body>
+</html>
